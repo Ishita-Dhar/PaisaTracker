@@ -8,6 +8,7 @@ import { RiSettings3Line } from "react-icons/ri";
 import MobileNavlinks from '../components/MobileNavlinks';
 import Footer from '@/components/Footer';
 import History from '@/components/History';
+import Budget from '@/components/Budget';
 
 const Dashboard = () => {
   return (
@@ -33,7 +34,8 @@ const Dashboard = () => {
         
         <main className='flex flex-1 overflow-y-auto bg-gray-100 '>
           {/* <ExpenseReports/> */}
-          <History/>
+          {/* <History/> */}
+          <Budget/>
 
         </main>
         
