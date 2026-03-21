@@ -33,9 +33,9 @@ const Dashboard = () => {
 
         
         <main className='flex flex-1 overflow-y-auto bg-gray-100 '>
-          {/* <ExpenseReports/> */}
+          <ExpenseReports/>
           {/* <History/> */}
-          <Budget/>
+          {/* <Budget/> */}
 
         </main>
         
