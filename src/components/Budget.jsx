@@ -22,7 +22,7 @@ const Budget = () => {
                 </div>
 
                 {/* Budget Card */}
-                <div className='bg-white rounded-xl py-6 px-5   border'>
+                <div className='bg-white rounded-xl py-6 px-5 hover:scale-102 transition-transform duration-500 border'>
                     <h2 className='mb-3 font-semibold'>
                         Total Monthly Budget Goal
                     </h2>
@@ -38,7 +38,7 @@ const Budget = () => {
                 </div>
 
                 {/* Progress Card */}
-                <div className='bg-white rounded-xl p-6    border space-y-3'>
+                <div className='bg-white rounded-xl p-6 hover:scale-102 transition-transform duration-500 border space-y-3'>
                     <h2 className='uppercase text-sm text-gray-500'>
                         Allocation Progress
                     </h2>
@@ -70,7 +70,7 @@ const Budget = () => {
 
                     {/* Category Cards */}
                     <div className='grid grid-cols-2 gap-4'>
-                        <div className='bg-white rounded-xl p-6 border'>
+                        <div className='bg-white rounded-xl p-6 border hover:scale-102 transition-transform duration-500'>
                             <div className='flex justify-between items-center mb-3'>
                                 <h1 className='font-medium flex items-center gap-2'>
                                     <i className='p-5 rounded-lg bg-blue-200'></i>
@@ -90,13 +90,13 @@ const Budget = () => {
                     </div>
 
                     {/* Save Button */}
-                    <button className='w-full mt-6 flex items-center justify-center font-bold gap-2 bg-blue-600 text-white px-5 py-4 rounded-lg hover:bg-blue-700 active:scale-97 transition-transform duration-500'>
+                    <input type='submit' className='w-full mt-6 flex items-center justify-center font-bold gap-2 bg-blue-600 text-white px-5 py-4 rounded-lg hover:bg-blue-700 active:scale-97 transition-transform duration-500'>
                         <FaRegSave />
                         Save Budget Plan
-                    </button>
-                    <button className='w-full mt-2 mb-6 flex items-center justify-center font-bold gap-2  text-gray-700 px-5 py-4 rounded-lg hover:bg-gray-300 active:scale-97 transition-transform duration-500'>
+                    </input>
+                    <input type='button' className='w-full mt-2 mb-6 flex items-center justify-center font-bold gap-2  text-gray-700 px-5 py-4 rounded-lg hover:bg-gray-300 active:scale-97 transition-transform duration-500'>
                         Cancel & Go Back
-                    </button>
+                    </input>
                 </div>
 
             </form>
