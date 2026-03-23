@@ -9,7 +9,7 @@ import MobileNavlinks from '../components/MobileNavlinks';
 import Footer from '@/components/Footer';
 import History from '@/components/History';
 import Budget from '@/components/Budget';
-import Settings from '@/components/Settings';
+import Settings from '@/pages/Settings';
 import AddExpense from '@/components/AddExpense';
 
 const Dashboard = () => {
@@ -34,7 +34,7 @@ const Dashboard = () => {
         </aside>
 
         
-        <main className='flex flex-1 overflow-y-auto bg-gray-100 '>
+        <main className='flex flex-1 overflow-y-auto scroll-smooth hide-scrollbar bg-gray-100 '>
           {/* <ExpenseReports/> */}
           {/* <History/> */}
           {/* <Budget/> */}

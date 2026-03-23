@@ -13,18 +13,18 @@ const AddExpense = () => {
                 <h1 className='text-3xl font-extrabold text-gray-900'>Add New Expense</h1>
                 <p className='text-gray-500'>Log your spending to keep your budget on track</p>
             </div>
-                <form action="" className='bg-white px-5 py-5 rounded-lg flex flex-col gap-5'>
+                <form action="" className='bg-white border hover:shadow-lg px-5 py-5 rounded-lg flex flex-col gap-5'>
                     <div className='grid grid-cols-2 gap-4' >
                         <span>
                             <label htmlFor="amount" className='text-lg text-gray-700'>Amount</label> <br />
-                            <div className='flex items-center gap-2 bg-gray-100 px-2 py-3 rounded-lg text-gray-700 border border-gray-300'>
+                            <div className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-2 py-3 rounded-lg text-gray-700 border border-gray-300'>
                                 <FaIndianRupeeSign />
                                 <input className='outline-none' type="number" name='amount' placeholder='0.0' />
                             </div>
                         </span>
                         <span>
                             <label htmlFor="date" className='text-lg text-gray-700'>Date</label> <br />
-                            <div className='flex items-center gap-2 bg-gray-100 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>
+                            <div className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>
 
                                 <input type="date" className='outline-none' />
                             </div>
@@ -32,16 +32,16 @@ const AddExpense = () => {
                     </div>
                     <div>
                         <label className='text-lg text-gray-700' htmlFor="expensename">Expense Name / Description</label> <br />
-                        <span className='flex items-center gap-2 bg-gray-100 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>e.g. <input className='outline-none ' type="text" placeholder='Weekly Groceries' /></span>
+                        <span className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>e.g. <input className='outline-none ' type="text" placeholder='Weekly Groceries' /></span>
                     </div>
                     <div>
                         <label className='text-lg text-gray-700' htmlFor="category">Category</label> <br />
-                        <span className='flex items-center gap-2 bg-gray-100 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>e.g. <input className='outline-none ' type="text" placeholder='Weekly Groceries' /></span>
+                        <span className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>e.g. <input className='outline-none ' type="text" placeholder='Weekly Groceries' /></span>
                     </div>
                     <div>
                         
                         <label className='text-lg text-gray-700' htmlFor="note">Notes (Optional)</label> <br />
-                        <textarea className='flex items-center gap-2 bg-gray-100 p-2  w-full rounded-lg text-gray-700 border border-gray-300 outline-none' type="text" name="note" id="note" placeholder='Add more details about this transaction...' rows={5}>
+                        <textarea className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 p-2  w-full rounded-lg text-gray-700 border border-gray-300 outline-none' type="text" name="note" id="note" placeholder='Add more details about this transaction...' rows={5}>
                             
                         </textarea>
                     
