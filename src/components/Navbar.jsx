@@ -20,7 +20,7 @@ const Navbar = () => {
                     <div className='text-sm font-light'>Premium Member</div>
                 </div>
                 <div>
-                    <img src="#" alt="" className='bg-blue-300 px-6 py-6 rounded-full' />
+                    <img src="#" alt="" className='bg-blue-200 px-6 py-6 rounded-full' />
                 </div>
             </div>
         </div>

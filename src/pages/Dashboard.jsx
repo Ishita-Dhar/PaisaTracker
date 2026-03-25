@@ -38,8 +38,8 @@ const Dashboard = () => {
           {/* <ExpenseReports/> */}
           {/* <History/> */}
           {/* <Budget/> */}
-          {/* <Settings/> */}
-          <AddExpense/>
+          <Settings/>
+          {/* <AddExpense/> */}
 
         </main>
         
