@@ -36,9 +36,9 @@ const Dashboard = () => {
         
         <main className='flex flex-1 overflow-y-auto scroll-smooth hide-scrollbar bg-gray-100 '>
           {/* <ExpenseReports/> */}
-          {/* <History/> */}
+          <History/>
           {/* <Budget/> */}
-          <Settings/>
+          {/* <Settings/> */}
           {/* <AddExpense/> */}
 
         </main>

@@ -1,3 +1,4 @@
+import DarkBrightButton from '@/components/DarkBrightButton'
 import React from 'react'
 
 
@@ -60,14 +61,13 @@ const Settings = () => {
                             <h2 className='text-sm font-bold '>Dark Mode</h2>
                             <p className='text-sm text-gray-600 '>Enable high-contrast dark theme</p>
                         </span>
-                        <button>
-
-                        </button>
+                        <DarkBrightButton/>
                     </div>
                     
 
                 </div>
                 <div className='p-3'>
+                    
 
                 </div>
             </div>
