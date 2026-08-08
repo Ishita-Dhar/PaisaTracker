@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { useMediaQuery } from "@/hooks/use-media-query"
+import { cn } from "@/lib/utils"
 
 import {
   Dialog,
@@ -34,10 +35,13 @@ const EditProfileButton = () => {
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <button className="text-blue-700 font-medium cursor-pointer hover:underline">
+        <DialogTrigger 
+        render={
+            <button className="text-blue-700 font-medium cursor-pointer hover:underline">
             Edit Profile
           </button>
+        }>
+          
         </DialogTrigger>
 
         <DialogContent className="sm:max-w-[425px]">
@@ -81,6 +85,10 @@ const EditProfileButton = () => {
 function ProfileForm({ className }) {
   return (
     <form className={cn("grid items-start gap-6", className)}>
+
+        <div className="bg-blue-500 h-25 w-25 rounded-full bg-[url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center ">
+
+        </div>
       
       <div className="grid gap-3">
         <Label htmlFor="name">Name</Label>
@@ -108,7 +116,7 @@ function ProfileForm({ className }) {
         />
       </div>
 
-      <Button type="submit">
+      <Button className="bg-blue-700 hover:bg-blue-800" type="submit">
         Save Changes
       </Button>
 

@@ -19,7 +19,7 @@ const Settings = () => {
                     <span className='flex gap-4 p-4'>
                         <div className='flex justify-center items-center'>
                             <div className='w-40 h-40 relative object-cover rounded-full'>
-                                <img src="https://images.unsplash.com/photo-1654874060431-8e2aa5dfe0ec?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="profile" className='w-40 h-40 p-1 border object-cover bg-blue-200 rounded-full' />
+                                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="profile" className='w-40 h-40 p-1 border object-cover bg-blue-200 rounded-full' />
                             </div>
 
                         </div>
