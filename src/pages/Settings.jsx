@@ -1,4 +1,5 @@
 import DarkBrightButton from '@/components/DarkBrightButton'
+import EditProfileButton from '@/components/EditProfileButton'
 import React from 'react'
 
 
@@ -13,7 +14,7 @@ const Settings = () => {
                 <div className='bg-white rounded-lg border'>
                     <div className='flex justify-between items-center py-6 px-4 border-b'>
                         <h1 className='text-xl font-bold'>Profile Information</h1>
-                        <button className='text-blue-700 font-medium cursor-pointer hover:underline'>Edit Profile</button>
+                        <EditProfileButton/>
                     </div>
                     <span className='flex gap-4 p-4'>
                         <div className='flex justify-center items-center'>
@@ -64,7 +65,11 @@ const Settings = () => {
                         <DarkBrightButton/>
                     </div>
                     
-
+                
+                </div>
+                <div className=' w-full relative right-0 flex justify-end items-center gap-4 px-4'>
+                    <button className='border-2 px-4 py-1 rounded-md hover:bg-gray-200 transition-all duration-110 cursor-pointer hover:shadow-2xl'>Discard Changes</button>
+                    <button className='border-2 px-4 py-1 rounded-md bg-blue-700 hover:bg-blue-800 text-gray-50 transition-all duration-110 cursor-pointer hover:shadow-2xl'>Save All Settings</button>
                 </div>
                 <div className='p-3'>
                     
