@@ -1,5 +1,7 @@
 "use client"
 
+import { IoCameraOutline } from "react-icons/io5";
+
 import * as React from "react"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import { cn } from "@/lib/utils"
@@ -68,7 +70,7 @@ const EditProfileButton = () => {
       </DrawerTrigger>
 
       <DrawerContent>
-        <DrawerHeader className="text-left">
+        <DrawerHeader className="text-left border-b">
           <DrawerTitle>Edit Profile</DrawerTitle>
 
           <DrawerDescription>
@@ -86,12 +88,25 @@ function ProfileForm({ className }) {
   return (
     <form className={cn("grid items-start gap-6", className)}>
 
-        <div className="bg-blue-500 h-25 w-25 rounded-full bg-[url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center ">
+        <div className="grid gap-3 justify-items-center">
+            <div className="w-20 h-20 rounded-full border-3 border-gray-200 bg-[url('https://images.unsplash.com/vector-1754829494850-95549a50701f?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center flex items-center justify-center group">
+                <IoCameraOutline size={20} className="opacity-0 group-hover:opacity-100 text-gray-50 transition-opacity duration-200" />
+            </div>
+
+            <Label className="uppercase font-bold px-2 py-2 rounded-md bg-blue-200 text-blue-700 hover:bg-blue-300  flex justify-center items-center" htmlFor="profile-photo">
+                Upload New Photo
+            </Label>
+            <input
+            id="profile-photo"
+             type="file"
+             accept="image/*"
+             className="hidden" 
+             />
 
         </div>
       
       <div className="grid gap-3">
-        <Label htmlFor="name">Name</Label>
+        <Label className="uppercase font-bold text-gray-500" htmlFor="name">Name</Label>
         <Input
           id="name"
           type="text"
@@ -100,7 +115,7 @@ function ProfileForm({ className }) {
       </div>
 
       <div className="grid gap-3">
-        <Label htmlFor="email">Email</Label>
+        <Label className="uppercase font-bold text-gray-500" htmlFor="email">Email</Label>
         <Input
           id="email"
           type="email"
@@ -109,10 +124,12 @@ function ProfileForm({ className }) {
       </div>
 
       <div className="grid gap-3">
-        <Label htmlFor="username">Username</Label>
+        <Label className="uppercase font-bold text-gray-500" htmlFor="bio">Bio</Label>
         <Input
-          id="username"
-          defaultValue="@ishita"
+          id="bio"
+          type="text"
+          defaultValue=""
+          placeholder="Write something about yourself"
         />
       </div>
 
