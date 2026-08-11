@@ -37,12 +37,12 @@ const EditProfileButton = () => {
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger 
-        render={
+        <DialogTrigger asChild> 
+        
             <button className="text-blue-700 font-medium cursor-pointer hover:underline">
             Edit Profile
           </button>
-        }>
+        
           
         </DialogTrigger>
 

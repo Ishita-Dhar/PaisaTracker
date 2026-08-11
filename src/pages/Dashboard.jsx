@@ -1,16 +1,16 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import ExpenseReports from '../components/ExpenseReports'
+import Navbar from '../components/layout/Navbar'
+import ExpenseReports from '../components/expenses/ExpenseReports'
 import { MdOutlineDashboard } from "react-icons/md";
 import { RiFileList3Line } from "react-icons/ri";
 import { LuNotebookPen } from "react-icons/lu";
 import { RiSettings3Line } from "react-icons/ri";
-import MobileNavlinks from '../components/MobileNavlinks';
-import Footer from '@/components/Footer';
-import History from '@/components/History';
-import Budget from '@/components/Budget';
+import MobileNavlinks from '../components/layout/MobileNavlinks';
+import Footer from '@/components/layout/Footer';
+import History from '@/components/expenses/History';
+import Budget from '@/components/expenses/Budget';
 import Settings from '@/pages/Settings';
-import AddExpense from '@/components/AddExpense';
+import AddExpense from '@/components/expenses/AddExpense';
 
 const Dashboard = () => {
   return (
@@ -38,8 +38,8 @@ const Dashboard = () => {
           {/* <ExpenseReports/> */}
           {/* <History/> */}
           {/* <Budget/> */}
-          <Settings/>
-          {/* <AddExpense/> */}
+          {/* <Settings/> */}
+          <AddExpense/>
 
         </main>
         

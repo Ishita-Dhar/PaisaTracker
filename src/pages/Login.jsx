@@ -1,10 +1,10 @@
 import React from 'react'
-import NavbarLogin from '../components/NavbarLogin'
+import NavbarLogin from '../components/layout/NavbarLogin'
 import { MdMail } from "react-icons/md";
 import { FaLock } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoApple } from "react-icons/io";
-import Footer from '../components/Footer';
+import Footer from '../components/layout/Footer';
 
 const Login = () => {
     return (
@@ -41,7 +41,7 @@ const Login = () => {
 
                 </form>
                 <p className='text-sm text-gray-600 mb-5'>
-                    By Logging in, you agree to our <a className='text-gray-800 hover:underline' href="">Terms of Service</a> and <a className='text-gray-800 hover:underline' href="">Privacy Policy</a>.
+                    Don't have an account? <a className='text-blue-700 font-bold hover:underline' href="">Create an account</a> 
                 </p>
 
             </div>

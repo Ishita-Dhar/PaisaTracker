@@ -1,5 +1,5 @@
 import React from 'react'
-import { Progress } from './ui/progress'
+import { Progress } from '../ui/progress'
 import { MdFastfood } from "react-icons/md";
 import { FaLuggageCart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";

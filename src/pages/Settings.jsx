@@ -1,5 +1,5 @@
-import DarkBrightButton from '@/components/DarkBrightButton'
-import EditProfileButton from '@/components/EditProfileButton'
+import DarkBrightButton from '../components/common/DarkBrightButton'
+import EditProfileButton from '../components/profile/EditProfileButton'
 import React from 'react'
 
 
@@ -11,8 +11,8 @@ const Settings = () => {
                     <h1 className='text-3xl font-extrabold text-gray-900'>Settings</h1>
                     <p className='text-gray-500'>Manage your profile, security, and app experience.</p>
                 </div>
-                <div className='bg-white rounded-lg border'>
-                    <div className='flex justify-between items-center py-6 px-4 border-b'>
+                <div className='bg-white rounded-lg border hover:scale-102 transition-transform duration-500 hover:shadow-lg'>
+                    <div className=' flex justify-between items-center py-6 px-4 border-b'>
                         <h1 className='text-xl font-bold'>Profile Information</h1>
                         <EditProfileButton/>
                     </div>
@@ -43,17 +43,17 @@ const Settings = () => {
 
                     </span>
                 </div>
-                <div  className='bg-white rounded-lg border'>
+                <div  className='bg-white rounded-lg border hover:scale-102 transition-transform duration-500 hover:shadow-lg'>
                     <div className='flex justify-between items-center py-6 px-4 border-b'>
                         <h1 className='text-xl font-bold'>Account Security</h1>
                     </div>
                     <div className='flex justify-between items-center py-6 px-6'>
                         <h2 className='text-sm font-bold '>Password</h2>
-                        <button className='bg-gray-200 hover:bg-gray-300 py-1 px-2 rounded-lg text-sm font-semibold cursor-pointer'>Change Password</button>
+                        <button className='bg-gray-200 hover:bg-gray-300 py-2 px-3 rounded-lg text-sm font-semibold cursor-pointer'>Change Password</button>
                     </div>
 
                 </div>
-                <div  className='bg-white rounded-lg border'>
+                <div  className='bg-white rounded-lg border hover:scale-102 transition-transform duration-500 hover:shadow-lg'>
                     <div className='flex justify-between items-center py-6 px-4 border-b'>
                         <h1 className='text-xl font-bold'>Preferences</h1>
                     </div>
@@ -68,8 +68,8 @@ const Settings = () => {
                 
                 </div>
                 <div className=' w-full relative right-0 flex justify-end items-center gap-4 px-4'>
-                    <button className='border-2 px-4 py-1 rounded-md hover:bg-gray-200 transition-all duration-110 cursor-pointer hover:shadow-2xl'>Discard Changes</button>
-                    <button className='border-2 px-4 py-1 rounded-md bg-blue-700 hover:bg-blue-800 text-gray-50 transition-all duration-110 cursor-pointer hover:shadow-2xl'>Save All Settings</button>
+                    <button className='border-2 px-6 py-3 rounded-md hover:bg-gray-200  active:scale-97 transition-all duration-500 cursor-pointer hover:shadow-2xl'>Discard Changes</button>
+                    <button className='border-2 px-6 py-3 rounded-md bg-blue-700 hover:bg-blue-800 text-gray-50 transition-all  cursor-pointer hover:shadow-2xl active:scale-97 duration-500'>Save All Settings</button>
                 </div>
                 <div className='p-3'>
                     
