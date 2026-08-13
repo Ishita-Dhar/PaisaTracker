@@ -168,9 +168,9 @@ const History = () => {
 
             <ul className='flex items-center gap-4'>
                 {
-                    filters.map((filter) => {
+                    filters.map((filter,idx) => {
                         return (
-                            <li className='bg-gray-200 px-2 py-1 rounded-lg text-xs border hover:border-gray-400 transition-transform duration-500'>{filter.input}</li>
+                            <li key={idx} className='bg-gray-200 px-2 py-1 rounded-lg text-xs border hover:border-gray-400 transition-transform duration-500'>{filter.input}</li>
                         )
                     })
                 }

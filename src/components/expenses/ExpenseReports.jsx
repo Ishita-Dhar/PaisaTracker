@@ -1,20 +1,24 @@
 import React from 'react'
+
+
 import { FaMoneyBills } from "react-icons/fa6";
-
 import { FaArrowUpLong } from "react-icons/fa6";
-import ExpenseCount from './ExpenseCount';
-import { MonthSpendChart } from './MonthSpendChart';
-import CatagoryWiseExpense from './CatagoryWiseExpense';
 import { MdListAlt } from "react-icons/md";
+import { MonthSpendChart } from './MonthSpendChart';
 
-const ExpenseReports = () => {
+import ExpenseCount from './ExpenseCount';
+import CatagoryWiseExpense from './CatagoryWiseExpense';
+
+const ExpenseReports = ({setActivePage}) => {
     return (
         <div className='flex flex-col my-8 mx-6 gap-5 justify-around min-h-screen'>
             <div className='flex flex-col md:flex-row gap-5'>
                 <div className='px-6 py-6 rounded-lg bg-white border  hover:shadow-lg hover:scale-102 active:scale-100 active:bg-gray-50 transition-transform duration-500 flex flex-col gap-6'>
                     <div className='flex justify-between items-center gap-30 '>
                         <h3 className='text- text-gray-500'>Total Spending</h3>
-                        <button className='bg-blue-100 hover:bg-blue-200 px-2 py-4 rounded-lg text-blue-700'>
+                        <button
+                        onClick={() => {setActivePage('budget')}}
+                        className='bg-blue-100 hover:bg-blue-200 px-2 py-4 rounded-lg text-blue-700'>
                             <FaMoneyBills size={20} />
                         </button>
                     </div>
@@ -71,7 +75,15 @@ const ExpenseReports = () => {
                     <h1 className='text-xl font-bold'>
                         Recent Spendings
                     </h1>
-                    <button className='border-2 hover:border-gray-300 hover:bg-blue-300 py-1 px-4 rounded-md text-sm text-blue-700  font-medium'>See History</button>
+
+                    {/* History button */}
+                    <button
+                    onClick={() => {
+                        // console.log('History button clicked');
+                        setActivePage('history')}} 
+                    
+                    className='border-2 hover:border-gray-300 hover:bg-blue-300 py-1 px-4 rounded-md text-sm text-blue-700  font-medium'
+                    >See History</button>
 
                 </div>
                 <div className=''>

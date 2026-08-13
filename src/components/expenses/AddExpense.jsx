@@ -13,7 +13,7 @@ const AddExpense = () => {
                     <h1 className='text-3xl font-extrabold text-gray-900'>Add New Expense</h1>
                     <p className='text-gray-500'>Log your spending to keep your budget on track</p>
                 </div>
-                <form action="" className='bg-white border hover:shadow-xl hover:scale-102 transition-transform duration-500 px-5 py-5 rounded-lg flex flex-col gap-5 '>
+                <form action="" className='bg-white border hover:shadow-xl hover:scale-102 transition-transform duration-500 px-4 py-4 rounded-lg flex flex-col gap-5 '>
                     <div className='grid grid-cols-2 gap-4' >
                         <span>
                             <label htmlFor="amount" className='text-lg text-gray-700'>Amount</label> <br />
