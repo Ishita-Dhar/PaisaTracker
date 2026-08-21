@@ -1,8 +1,67 @@
 import React from 'react'
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import { useState } from 'react';
+
 
 
 const AddExpense = () => {
+
+    const [errors, setErrors] = useState({});
+    const [expense, setExpense] = useState({
+        amount: "",
+        date: "",
+        description: "",
+        category: "",
+        notes: ""
+    })
+
+    // errors = {
+    //     amount: "Amount is required",
+    //     date: "Date is required",
+    //     description: "Description is required",
+    //     category: "Category is required"
+    // }
+
+
+
+    // checking the values when user clicks Add Expense
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!validateExpense()) {
+            return;
+        }
+        console.log("Expense is valid!");
+        console.log(expense);
+
+    }
+
+    const validateExpense = () => {
+        const newErrors = {};
+
+        if (!expense.amount) {
+            newErrors.amount = "Amount is required";
+        } else if (Number(expense.amount) <= 0) {
+            newErrors.amount = "Amount must be greater than 0";
+        }
+
+        if (!expense.date) {
+            newErrors.date = "Date is required";
+        }
+
+        if (!expense.description.trim()) {
+            newErrors.description = "Description is required";
+        }
+
+        if (!expense.category) {
+            newErrors.category = "Category is required";
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
+
     return (
 
         <div className=' flex flex-col w-full items-center my-8 gap-5 min-h-screen'>
@@ -13,35 +72,126 @@ const AddExpense = () => {
                     <h1 className='text-3xl font-extrabold text-gray-900'>Add New Expense</h1>
                     <p className='text-gray-500'>Log your spending to keep your budget on track</p>
                 </div>
-                <form action="" className='bg-white border hover:shadow-xl hover:scale-102 transition-transform duration-500 px-4 py-4 rounded-lg flex flex-col gap-5 '>
+
+
+                {/* Form Section */}
+
+
+                <form onSubmit={handleSubmit} action="" className='bg-white border hover:shadow-xl hover:scale-102 transition-transform duration-500 px-4 py-4 rounded-lg flex flex-col gap-5 '>
                     <div className='grid grid-cols-2 gap-4' >
                         <span>
                             <label htmlFor="amount" className='text-lg text-gray-700'>Amount</label> <br />
                             <div className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-2 py-3 rounded-lg text-gray-700 border border-gray-300'>
                                 <FaIndianRupeeSign />
-                                <input className='outline-none' type="number" name='amount' placeholder='0.0' />
+
+                                {/* Amount */}
+
+                                <input className='outline-none' type="number" id="amount" name='amount' placeholder='0.0'
+                                    value={expense.amount}
+                                    onChange={(e) =>
+                                        setExpense({
+                                            ...expense,
+                                            amount: e.target.value
+                                        })
+                                    }
+                                />
                             </div>
+                            {errors.amount && (
+                                    <p className="text-red-500 text-sm mt-1">
+                                        {errors.amount}
+                                    </p>
+                                )}
                         </span>
                         <span>
                             <label htmlFor="date" className='text-lg text-gray-700'>Date</label> <br />
                             <div className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>
 
-                                <input type="date" className='outline-none' />
+                                {/* Date */}
+
+                                <input type="date" id="date" className='outline-none'
+                                    value={expense.date}
+                                    onChange={(e) =>
+                                        setExpense({
+                                            ...expense,
+                                            date: e.target.value
+                                        })
+                                    }
+                                />
                             </div>
+                                {errors.date && (
+                                    <p className="text-red-500 text-sm mt-1">
+                                        {errors.date}
+                                    </p>
+                                )}
                         </span>
                     </div>
                     <div>
                         <label className='text-lg text-gray-700' htmlFor="expensename">Expense Name / Description</label> <br />
-                        <span className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>e.g. <input className='outline-none ' type="text" placeholder='Weekly Groceries' /></span>
+                        <span className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>e.g.
+
+                            {/* Describe your expense here < */}
+
+                            <input className='outline-none ' type="text" id="expensename" placeholder='Weekly Groceries'
+                                value={expense.description}
+                                onChange={(e) =>
+                                    setExpense({
+                                        ...expense,
+                                        description: e.target.value
+                                    })
+                                }
+                            />
+                        </span>
+                            {errors.description && (
+                                <p className="text-red-500 text-sm mt-1">
+                                    {errors.description}
+                                </p>
+                            )}
                     </div>
                     <div>
                         <label className='text-lg text-gray-700' htmlFor="category">Category</label> <br />
-                        <span className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>e.g. <input className='outline-none ' type="text" placeholder='Weekly Groceries' /></span>
+                        <span className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-6 py-3 rounded-lg text-gray-700 border border-gray-300'>e.g.
+
+                            {/* Category of your expense < */}
+
+                            <select className='outline-none ' type="text" id="category" placeholder='Weekly Groceries'
+                                value={expense.category}
+                                onChange={(e) =>
+                                    setExpense({
+                                        ...expense,
+                                        category: e.target.value
+                                    })
+                                }
+                            >
+                                <option value="">Select Category</option>
+                                <option value="Food">Food</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="bills">Bills</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </span>
+                            {errors.category && (
+                                <p className="text-red-500 text-sm mt-1">
+                                    {errors.category}
+                                </p>
+                            )}
                     </div>
                     <div>
 
-                        <label className='text-lg text-gray-700' htmlFor="note">Notes (Optional)</label> <br />
-                        <textarea className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 p-2  w-full rounded-lg text-gray-700 border border-gray-300 outline-none' type="text" name="note" id="note" placeholder='Add more details about this transaction...' rows={5}>
+                        <label className='text-lg text-gray-700' htmlFor="notes">Notes (Optional)</label> <br />
+                        <textarea className='flex items-center gap-2 bg-gray-100 hover:bg-gray-200 p-2  w-full rounded-lg text-gray-700 border border-gray-300 outline-none' type="text" placeholder='Add more details about this transaction...' rows={5}
+                            name="notes"
+                            id="notes"
+                            value={expense.notes}
+                            onChange={(e) =>
+                                setExpense({
+                                    ...expense,
+                                    notes: e.target.value
+                                })
+                            }
+                        >
 
                         </textarea>
 
