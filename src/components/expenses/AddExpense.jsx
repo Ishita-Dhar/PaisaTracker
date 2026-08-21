@@ -15,27 +15,10 @@ const AddExpense = () => {
         notes: ""
     })
 
-    // errors = {
-    //     amount: "Amount is required",
-    //     date: "Date is required",
-    //     description: "Description is required",
-    //     category: "Category is required"
-    // }
-
-
 
     // checking the values when user clicks Add Expense
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!validateExpense()) {
-            return;
-        }
-        console.log("Expense is valid!");
-        console.log(expense);
-
-    }
-
+    
     const validateExpense = () => {
         const newErrors = {};
 
@@ -61,6 +44,38 @@ const AddExpense = () => {
 
         return Object.keys(newErrors).length === 0;
     };
+
+    // Handle form submission
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!validateExpense()) {
+            return;
+        }
+
+        const exsistingExpenses = JSON.parse(localStorage.getItem("expenses")) || [];
+        const newExpense={
+            id: Date.now(),...expense
+        }
+        // adding new expense to the existing expenses
+        const updatedExpenses = [...exsistingExpenses, newExpense];
+
+        // saving to localStorage
+        localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
+
+        // Reset the form after successful submission
+        setExpense({
+            amount: "",
+            date: "",
+            description: "",
+            category: "",
+            notes: ""
+        });
+        setErrors({}); // Clear errors after successful submission
+        console.log("Expense saved!");
+        console.log(newExpense);
+
+    }
 
     return (
 
