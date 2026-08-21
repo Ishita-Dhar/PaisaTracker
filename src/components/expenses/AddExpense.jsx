@@ -1,11 +1,12 @@
 import React from 'react'
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { useState } from 'react';
-
+import ExportSavedMessage from './ExpenseSavedMessage';
 
 
 const AddExpense = () => {
 
+    const [showMessage, setShowMessage] = useState(false);
     const [errors, setErrors] = useState({});
     const [expense, setExpense] = useState({
         amount: "",
@@ -18,7 +19,7 @@ const AddExpense = () => {
 
     // checking the values when user clicks Add Expense
 
-    
+
     const validateExpense = () => {
         const newErrors = {};
 
@@ -54,8 +55,8 @@ const AddExpense = () => {
         }
 
         const exsistingExpenses = JSON.parse(localStorage.getItem("expenses")) || [];
-        const newExpense={
-            id: Date.now(),...expense
+        const newExpense = {
+            id: Date.now(), ...expense
         }
         // adding new expense to the existing expenses
         const updatedExpenses = [...exsistingExpenses, newExpense];
@@ -75,15 +76,28 @@ const AddExpense = () => {
         console.log("Expense saved!");
         console.log(newExpense);
 
+        setShowMessage(true);
+
+        // Hide the message after 3 seconds
+        setTimeout(() => {
+            setShowMessage(false);
+        }, 3000);
     }
 
     return (
 
-        <div className=' flex flex-col w-full items-center my-8 gap-5 min-h-screen'>
+        <div className=' flex flex-col w-full items-center my-8 gap-5 min-h-screen '>
 
 
-            <main className='flex-1 flex flex-col gap-5'>
-                <div>
+            <main className='flex-1 flex flex-col gap-5 '>
+
+
+
+                <div className="relative">
+                    {
+                        showMessage &&
+                        <ExportSavedMessage className='absolute transition-opacity duration-1000  z-1' />
+                    }
                     <h1 className='text-3xl font-extrabold text-gray-900'>Add New Expense</h1>
                     <p className='text-gray-500'>Log your spending to keep your budget on track</p>
                 </div>
@@ -112,10 +126,10 @@ const AddExpense = () => {
                                 />
                             </div>
                             {errors.amount && (
-                                    <p className="text-red-500 text-sm mt-1">
-                                        {errors.amount}
-                                    </p>
-                                )}
+                                <p className="text-red-500 text-sm mt-1">
+                                    {errors.amount}
+                                </p>
+                            )}
                         </span>
                         <span>
                             <label htmlFor="date" className='text-lg text-gray-700'>Date</label> <br />
@@ -133,11 +147,11 @@ const AddExpense = () => {
                                     }
                                 />
                             </div>
-                                {errors.date && (
-                                    <p className="text-red-500 text-sm mt-1">
-                                        {errors.date}
-                                    </p>
-                                )}
+                            {errors.date && (
+                                <p className="text-red-500 text-sm mt-1">
+                                    {errors.date}
+                                </p>
+                            )}
                         </span>
                     </div>
                     <div>
@@ -156,11 +170,11 @@ const AddExpense = () => {
                                 }
                             />
                         </span>
-                            {errors.description && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.description}
-                                </p>
-                            )}
+                        {errors.description && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.description}
+                            </p>
+                        )}
                     </div>
                     <div>
                         <label className='text-lg text-gray-700' htmlFor="category">Category</label> <br />
@@ -187,11 +201,11 @@ const AddExpense = () => {
                                 <option value="other">Other</option>
                             </select>
                         </span>
-                            {errors.category && (
-                                <p className="text-red-500 text-sm mt-1">
-                                    {errors.category}
-                                </p>
-                            )}
+                        {errors.category && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.category}
+                            </p>
+                        )}
                     </div>
                     <div>
 
