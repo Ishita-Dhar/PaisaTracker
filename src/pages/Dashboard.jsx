@@ -32,7 +32,7 @@ const Dashboard = () => {
       return <Budget />;
 
     case "settings":
-      return <Settings />;
+      return <Settings setActivePage={setActivePage} />;
 
     case "add-expense":
       return <AddExpense setActivePage={setActivePage} />;

@@ -184,7 +184,7 @@ const AddExpense = ({setActivePage}) => {
 
                             {/* Category of your expense < */}
 
-                            <select className='outline-none ' type="text" id="category" placeholder='Weekly Groceries'
+                            <select className='outline-none ' type="text" id="category" 
                                 value={expense.category}
                                 onChange={(e) =>
                                     setExpense({
@@ -195,6 +195,7 @@ const AddExpense = ({setActivePage}) => {
                             >
                                 <option value="">Select Category</option>
                                 <option value="Food & Dining">Food & Dining</option>
+                                <option value="Groceries">Groceries</option>
                                 <option value="Transportation">Transportation</option>
                                 <option value="Shopping">Shopping</option>
                                 <option value="Bills & Utilities">Bills & Utilities</option>
@@ -203,7 +204,7 @@ const AddExpense = ({setActivePage}) => {
                                 <option value="Education">Education</option>
                                 <option value="Travel">Travel</option>
                                 <option value="Personal Care">Personal Care</option>
-                                <option value="Finance">Finance</option>
+                                <option value="Finance & Investments">Finance & Investments</option>
                                 <option value="Gifts & Donations">Gifts & Donations</option>
                                 <option value="Other">Other</option>
                             </select>
@@ -235,7 +236,10 @@ const AddExpense = ({setActivePage}) => {
                     <div className='flex gap-2 '>
                         <input className='w-1/2 bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-5 rounded-lg hover:shadow-lg hover:scale-101 transition-transform duration-500 active:scale-96' type="submit" value='+ Add Expense' />
                         <button className='w-1/2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-5 rounded-lg hover:shadow-lg hover:scale-101 transition-transform duration-500 active:scale-96' type="button" 
-                        value='Cancel' onClick={() => setActivePage('ExpenseReports')}>Cancel</button>
+                        value='Cancel' 
+                        onClick={() => setActivePage('ExpenseReports')}>
+                            Cancel
+                        </button>
                     </div>
 
                 </form>

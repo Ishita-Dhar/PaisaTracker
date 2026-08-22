@@ -7,7 +7,11 @@ import { MdListAlt } from "react-icons/md";
 import { FaTv } from "react-icons/fa";
 import { GiSchoolBag } from "react-icons/gi";
 import { FaClinicMedical } from "react-icons/fa";
-import { FaHandHoldingMedical } from "react-icons/fa";
+import { FaGifts } from "react-icons/fa";
+import { RiRoadsterFill } from "react-icons/ri";
+import { HiDocumentCurrencyRupee } from "react-icons/hi2";
+import { RiAlignItemBottomLine } from "react-icons/ri";
+import { FaSprayCanSparkles } from "react-icons/fa6";
 
 import { Button } from "@/components/ui/button"
 import {
@@ -24,7 +28,7 @@ import {
 const categories = [
     {
         logo: <MdFastfood size={40} className=' py-2 px-2 rounded-lg border-2 border-orange-500 bg-orange-200 text-orange-500' />,
-        name: "Food",
+        name: "Food & Dining",
         amount: 1200,
         color: "bg-orange-500"
     },
@@ -35,6 +39,12 @@ const categories = [
         color: "bg-blue-500"
     },
     {
+        logo: <RiRoadsterFill size={40} className=' py-2 px-2 rounded-lg border-2 border-blue-800 bg-blue-100 text-blue-800' />,
+        name: "Transportation",
+        amount: 10000,
+        color: "bg-blue-500"
+    },
+    {
         logo: <FaShoppingCart size={40} className=' py-2 px-2 rounded-lg border-2 border-green-500 bg-green-200 text-green-500' />,
         name: "Shopping",
         amount: 1500,
@@ -42,7 +52,7 @@ const categories = [
     },
     {
         logo: <MdListAlt size={40} className=' py-2 px-2 rounded-lg border-2 border-gray-500 bg-gray-200 text-gray-500' />,
-        name: "Bills",
+        name: "Bills & Utilities",
         amount: 600,
         color: "bg-gray-500"
     },
@@ -63,7 +73,7 @@ const categories = [
     {
         logo: <FaClinicMedical size={40} className=' py-2 px-2 rounded-lg border-2 border-pink-600 bg-pink-200 text-pink-600' />,
         logobg: "",
-        name: "Health",
+        name: "Health & Medical",
         amount: 700,
         color: "bg-pink-500"
     },
@@ -82,25 +92,32 @@ const categories = [
         color: "bg-teal-500"
     },
     {
-        logo: <FaHandHoldingMedical size={40} className=' py-2 px-2 rounded-lg border-2 border-red-600 bg-red-200 text-red-600' />,
+        logo: <FaGifts size={40} className=' py-2 px-2 rounded-lg border-2 border-red-600 bg-red-200 text-red-600' />,
         logobg: "",
-        name: "Insurance",
+        name: "Gifts & Donations",
         amount: 600,
         color: "bg-red-500"
     },
     {
-        logo: <MdListAlt size={40} className=' py-2 px-2 rounded-lg border-2 border-cyan-600 bg-cyan-200 text-cyan-600' />,
+        logo: <FaSprayCanSparkles size={40} className=' py-2 px-2 rounded-lg border-2 border-cyan-600 bg-cyan-200 text-cyan-600' />,
         logobg: "",
-        name: "Utilities",
+        name: "Personal Care",
         amount: 800,
         color: "bg-cyan-500"
     },
     {
-        logo: <MdListAlt size={40} className=' py-2 px-2 rounded-lg border-2 border-lime-700 bg-lime-200 text-lime-700' />,
+        logo: <HiDocumentCurrencyRupee size={40} className=' py-2 px-2 rounded-lg border-2 border-lime-700 bg-lime-200 text-lime-700' />,
         logobg: "",
-        name: "Investments",
+        name: "Finance & Investments",
         amount: 2000,
         color: "bg-lime-500"
+    },
+    {
+        logo: <RiAlignItemBottomLine size={40} className=' py-2 px-2 rounded-lg border-2 border-gray-800 bg-gray-200 text-gray-800' />,
+        logobg: "",
+        name: "Other",
+        amount: 800,
+        color: "bg-cyan-500"
     }
 
 ]
@@ -138,12 +155,12 @@ const CatagoryWiseExpense = () => {
                 <DialogTrigger asChild>
                     <Button className="bg-transparent text-blue-700 font-semibold cursor-pointer hover:bg-transparent hover:underline">View All Categories</Button>
                 </DialogTrigger>
-                <DialogContent showCloseButton={false}>
+                <DialogContent className="m-4 max-h-[90vh] overflow-y-auto no-scrollbar" showCloseButton={false}>
                     <DialogHeader>
                         <DialogTitle className="text-xl font-bold">Categories</DialogTitle>
                     </DialogHeader>
                     <DialogDescription>
-                            <div className="flex flex-col gap-3 ">
+                            <div className="flex flex-col gap-3  ">
                                 {
                 categories.map((cat) => {
                     const percentage = (cat.amount / maxAmount) * 100
@@ -178,31 +195,3 @@ const CatagoryWiseExpense = () => {
 export default CatagoryWiseExpense
 
 
-// import { Button } from "@/components/ui/button"
-// import {
-//   Dialog,
-//   DialogClose,
-//   DialogContent,
-//   DialogDescription,
-//   DialogFooter,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog"
-
-// export function DialogNoCloseButton() {
-//   return (
-//     <Dialog>
-//       <DialogTrigger render={<Button variant="outline">No Close Button</Button>} />
-//       <DialogContent showCloseButton={false}>
-//         <DialogHeader>
-//           <DialogTitle>No Close Button</DialogTitle>
-//           <DialogDescription>
-//             This dialog doesn&apos;t have a close button in the top-right
-//             corner.
-//           </DialogDescription>
-//         </DialogHeader>
-//       </DialogContent>
-//     </Dialog>
-//   )
-// }
