@@ -4,8 +4,10 @@ import { useState } from 'react';
 import ExportSavedMessage from './ExpenseSavedMessage';
 
 
-const AddExpense = () => {
 
+const AddExpense = ({setActivePage}) => {
+
+    
     const [showMessage, setShowMessage] = useState(false);
     const [errors, setErrors] = useState({});
     const [expense, setExpense] = useState({
@@ -192,13 +194,18 @@ const AddExpense = () => {
                                 }
                             >
                                 <option value="">Select Category</option>
-                                <option value="Food">Food</option>
+                                <option value="Food & Dining">Food & Dining</option>
                                 <option value="Transportation">Transportation</option>
-                                <option value="Entertainment">Entertainment</option>
-                                <option value="Utilities">Utilities</option>
                                 <option value="Shopping">Shopping</option>
-                                <option value="bills">Bills</option>
-                                <option value="other">Other</option>
+                                <option value="Bills & Utilities">Bills & Utilities</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Health & Medical">Health & Medical</option>
+                                <option value="Education">Education</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Personal Care">Personal Care</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Gifts & Donations">Gifts & Donations</option>
+                                <option value="Other">Other</option>
                             </select>
                         </span>
                         {errors.category && (
@@ -227,7 +234,8 @@ const AddExpense = () => {
                     </div>
                     <div className='flex gap-2 '>
                         <input className='w-1/2 bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-5 rounded-lg hover:shadow-lg hover:scale-101 transition-transform duration-500 active:scale-96' type="submit" value='+ Add Expense' />
-                        <input className='w-1/2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-5 rounded-lg hover:shadow-lg hover:scale-101 transition-transform duration-500 active:scale-96' type="button" value='Cancel' />
+                        <button className='w-1/2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-5 rounded-lg hover:shadow-lg hover:scale-101 transition-transform duration-500 active:scale-96' type="button" 
+                        value='Cancel' onClick={() => setActivePage('ExpenseReports')}>Cancel</button>
                     </div>
 
                 </form>

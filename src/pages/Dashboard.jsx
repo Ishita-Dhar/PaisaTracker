@@ -35,7 +35,7 @@ const Dashboard = () => {
       return <Settings />;
 
     case "add-expense":
-      return <AddExpense />;
+      return <AddExpense setActivePage={setActivePage} />;
 
     default:
       return <ExpenseReports setActivePage={setActivePage} />;
