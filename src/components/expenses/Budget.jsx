@@ -10,13 +10,7 @@ const Budget = () => {
 
     const [budget, setBudget] = React.useState("");
 
-    const [categories, setCategories] = React.useState([
-        {
-            id: Date.now(),
-            name: '',
-            limit: ""
-        }
-    ])
+    const [categories, setCategories] = React.useState([])
 
     const addCategory = () => {
         setCategories([
@@ -114,43 +108,73 @@ const Budget = () => {
                     </div>
 
                     {/* Category Cards */}
-                    <div className='grid grid-cols-2 gap-4'>
-                        <div className='bg-white rounded-xl p-6 border hover:scale-102 transition-transform duration-500 hover:shadow-lg'>
-                            <div className='flex justify-between items-center mb-3'>
-                                <h1 className='font-medium flex items-center gap-2'>
-                                    <i className='p-5 rounded-lg bg-blue-200'></i>
-                                    {/* <input
-                                        type="text"
-                                        value={category.name}
+                    <div className="grid grid-cols-2 gap-4">
+
+                        {categories.map((category) => (
+
+                            <div
+                                key={category.id}
+                                className="bg-white rounded-xl p-6 border hover:scale-102 transition-transform duration-500 hover:shadow-lg"
+                            >
+
+                                <div className="flex justify-between items-center mb-3">
+
+                                    <div className="font-medium flex items-center gap-2">
+
+                                        <i className="p-5 rounded-lg bg-blue-200"></i>
+
+                                        <input
+                                            type="text"
+                                            value={category.name}
+                                            onChange={(e) =>
+                                                updateCategory(
+                                                    category.id,
+                                                    "name",
+                                                    e.target.value
+                                                )
+                                            }
+                                            placeholder="Category Name"
+                                            className="outline-none"
+                                        />
+
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        onClick={() => deleteCategory(category.id)}
+                                    >
+                                        <RiDeleteBinFill
+                                            size={25}
+                                            className="text-gray-500 hover:text-red-400 cursor-pointer"
+                                        />
+                                    </button>
+
+                                </div>
+
+                                <div className="flex items-center gap-2 bg-gray-200 px-3 py-2 rounded-lg">
+
+                                    <FaIndianRupeeSign />
+
+                                    <input
+                                        type="number"
+                                        value={category.limit}
                                         onChange={(e) =>
-                                            updateCategory(category.id, "name", e.target.value)
+                                            updateCategory(
+                                                category.id,
+                                                "limit",
+                                                e.target.value
+                                            )
                                         }
-                                        placeholder="Category Name"
-                                    /> */}
-                                </h1>
-
-                                {/* deleting the category */}
-                                <input type="button"
-                                    onClick={() => deleteCategory(category.id)}
-                                >
-
-                                    <RiDeleteBinFill size={25} className='text-gray-500 hover:text-gray-600 cursor-pointer'
+                                        placeholder="Category Limit"
+                                        className="bg-transparent outline-none w-full"
                                     />
-                                </input>
 
-
-
+                                </div>
 
                             </div>
 
-                            <div className='flex items-center gap-2 bg-gray-200 px-3 py-2 rounded-lg'>
-                                <FaIndianRupeeSign />
-                                <input
-                                    type="text"
-                                    className='bg-transparent outline-none w-full'
-                                />
-                            </div>
-                        </div>
+                        ))}
+
                     </div>
 
                     {/* Save Button */}
