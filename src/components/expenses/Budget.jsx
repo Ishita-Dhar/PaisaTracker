@@ -7,6 +7,44 @@ import { RiDeleteBinFill } from "react-icons/ri";
 import { FaRegSave } from "react-icons/fa";
 
 const Budget = () => {
+
+    const [budget, setBudget] = React.useState("");
+
+    const [categories, setCategories] = React.useState([
+        {
+            id: Date.now(),
+            name: '',
+            limit: ""
+        }
+    ])
+
+    const addCategory = () => {
+        setCategories([
+            ...categories,
+            {
+                id: Date.now(),
+                name: '',
+                limit: ""
+            }
+        ])
+    }
+
+    const updateCategory = (id, field, value) => {
+        setCategories(
+            categories.map((category) =>
+                category.id === id ?
+                    { ...category, [field]: value }
+                    : category
+            )
+        )
+    }
+
+    const deleteCategory = (id) => {
+        setCategories(
+            categories.filter((category) => category.id !== id)
+        )
+    }
+
     return (
         <div className='min-h-screen w-full bg-gray-100 flex justify-center'>
             <form className='flex flex-col w-full max-w-4xl mx-8 p-6 space-y-6'>
@@ -31,6 +69,10 @@ const Budget = () => {
                         <FaIndianRupeeSign />
                         <input
                             type="text"
+                            value={budget}
+                            onChange={
+                                (e) => setBudget(e.target.value)
+                            }
                             placeholder='Add Budget Value'
                             className='bg-transparent outline-none w-full'
                         />
@@ -63,7 +105,10 @@ const Budget = () => {
                         <h1 className='text-xl font-semibold'>
                             Category Limits
                         </h1>
-                        <button className='text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-blue-200'>
+                        <button
+                            type="button"
+                            className='text-blue-600 font-medium px-3 py-2 rounded-lg hover:bg-blue-200'
+                            onClick={addCategory}>
                             + Add Category
                         </button>
                     </div>
@@ -74,13 +119,32 @@ const Budget = () => {
                             <div className='flex justify-between items-center mb-3'>
                                 <h1 className='font-medium flex items-center gap-2'>
                                     <i className='p-5 rounded-lg bg-blue-200'></i>
-                                    Category Name
+                                    {/* <input
+                                        type="text"
+                                        value={category.name}
+                                        onChange={(e) =>
+                                            updateCategory(category.id, "name", e.target.value)
+                                        }
+                                        placeholder="Category Name"
+                                    /> */}
                                 </h1>
-                                <RiDeleteBinFill size={25} className='text-gray-500 hover:text-gray-600 cursor-pointer' />
+
+                                {/* deleting the category */}
+                                <input type="button"
+                                    onClick={() => deleteCategory(category.id)}
+                                >
+
+                                    <RiDeleteBinFill size={25} className='text-gray-500 hover:text-gray-600 cursor-pointer'
+                                    />
+                                </input>
+
+
+
+
                             </div>
 
                             <div className='flex items-center gap-2 bg-gray-200 px-3 py-2 rounded-lg'>
-                                <FaIndianRupeeSign  />
+                                <FaIndianRupeeSign />
                                 <input
                                     type="text"
                                     className='bg-transparent outline-none w-full'
